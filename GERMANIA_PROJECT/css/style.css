@@ -585,8 +585,8 @@ button {
 
 .app {
   display: grid;
-  grid-template-columns: var(--sidebar-w) 1fr var(--rightbar-w);
-  grid-auto-rows: min-content 1fr;
+  grid-template-columns: var(--sidebar-w) minmax(0, 1fr) var(--rightbar-w);
+  grid-template-rows: 68px minmax(0, 1fr);
   min-height: 100vh;
 }
 
@@ -3686,4 +3686,36 @@ body {
   color: var(--text-muted);
   line-height: 1.4;
 }
+.navbar {
+  grid-column: 1 / -1;
+  grid-row: 1;
 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 14px 28px;
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-100);
+  z-index: 10;
+}
+
+.sidebar {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.main {
+  grid-column: 2;
+  grid-row: 2;
+
+  padding: 24px 28px;
+  min-width: 0;
+}
+
+.rightbar {
+  grid-column: 3;
+  grid-row: 2;
+
+  padding: 24px 24px 24px 0;
+}
